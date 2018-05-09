@@ -1,0 +1,69 @@
+#!/bin/bash
+
+oi=/usr/bin/oiiotool
+mo=/usr/bin/montage
+black=/hd/na11/AJA/black/1080pBlack.jpg
+
+##########################################
+name=ADD_NAME 
+idir=/hd/na31/ClimateWall/$name/src_frames
+odir=/hd/na31/ClimateWall/$name/split_frames
+ajaodir=/hd/na31/ClimateWall/$name/aja_frames
+iext=png
+oext=png
+pad=5
+##########################################
+res="1920x1080"; x=1920; y=1080
+
+if [ ! -d "$odir" ]; then
+        mkdir -p $odir
+        chmod 777 $odir
+fi    
+
+if [ ! -d "$ajaodir" ]; then
+        mkdir -p $ajaodir
+        chmod 777 $ajaodir
+fi
+
+
+for i in `/usr/bin/seq -f %0${pad}g $1 $2`;do
+
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*0))+$(($y*0)) --fullsize $res -o $odir/$name-P01.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*1))+$(($y*0)) --fullsize $res -o $odir/$name-P02.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*2))+$(($y*0)) --fullsize $res -o $odir/$name-P03.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*3))+$(($y*0)) --fullsize $res -o $odir/$name-P04.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*4))+$(($y*0)) --fullsize $res -o $odir/$name-P05.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*5))+$(($y*0)) --fullsize $res -o $odir/$name-P06.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*6))+$(($y*0)) --fullsize $res -o $odir/$name-P07.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*7))+$(($y*0)) --fullsize $res -o $odir/$name-P08.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*8))+$(($y*0)) --fullsize $res -o $odir/$name-P09.$i.$oext
+ 
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*0))+$(($y*1)) --fullsize $res -o $odir/$name-P10.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*1))+$(($y*1)) --fullsize $res -o $odir/$name-P11.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*2))+$(($y*1)) --fullsize $res -o $odir/$name-P12.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*3))+$(($y*1)) --fullsize $res -o $odir/$name-P13.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*4))+$(($y*1)) --fullsize $res -o $odir/$name-P14.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*5))+$(($y*1)) --fullsize $res -o $odir/$name-P15.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*6))+$(($y*1)) --fullsize $res -o $odir/$name-P16.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*7))+$(($y*1)) --fullsize $res -o $odir/$name-P17.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*8))+$(($y*1)) --fullsize $res -o $odir/$name-P18.$i.$oext
+
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*0))+$(($y*2)) --fullsize $res -o $odir/$name-P19.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*1))+$(($y*2)) --fullsize $res -o $odir/$name-P20.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*2))+$(($y*2)) --fullsize $res -o $odir/$name-P21.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*3))+$(($y*2)) --fullsize $res -o $odir/$name-P22.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*4))+$(($y*2)) --fullsize $res -o $odir/$name-P23.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*5))+$(($y*2)) --fullsize $res -o $odir/$name-P24.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*6))+$(($y*2)) --fullsize $res -o $odir/$name-P25.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*7))+$(($y*2)) --fullsize $res -o $odir/$name-P26.$i.$oext
+  $oi $idir/$name.$i.$iext --crop $res+$(($x*8))+$(($y*2)) --fullsize $res -o $odir/$name-P27.$i.$oext
+
+  $mo $odir/$name-P{01..04}.$i.$oext -tile 2x2 -geometry $res $ajaodir/$name-AJA1.$i.$oext 
+  $mo $odir/$name-P{05..08}.$i.$oext -tile 2x2 -geometry $res $ajaodir/$name-AJA2.$i.$oext 
+  $mo $odir/$name-P{09..12}.$i.$oext -tile 2x2 -geometry $res $ajaodir/$name-AJA3.$i.$oext 
+  $mo $odir/$name-P{13..16}.$i.$oext -tile 2x2 -geometry $res $ajaodir/$name-AJA4.$i.$oext 
+  $mo $odir/$name-P{17..20}.$i.$oext -tile 2x2 -geometry $res $ajaodir/$name-AJA5.$i.$oext 
+  $mo $odir/$name-P{21..24}.$i.$oext -tile 2x2 -geometry $res $ajaodir/$name-AJA6.$i.$oext 
+  $mo $odir/$name-P{25..27}.$i.$oext $black -tile 2x2 -geometry $res $ajaodir/$name-AJA7.$i.$oext 
+
+done
