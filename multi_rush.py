@@ -6,28 +6,28 @@ import datetime
 import subprocess
  
 time = datetime.datetime.now()
-now = (time.strftime("%Y%m%d"))
-job_num = 0
-command_files = []
+now = (time.strftime("%Y%m%d")) 					# For tagging new_rushscript_dir with date
+job_num = 0 										# For tagging the user prompts with a job #. 
+command_files = [] 									# The final product 
+errors = (NameError, TypeError, SyntaxError)
 
 # Make a new directory to house our bundle of scripts we're about to create. The new folder will be named with the date on the end. 
+# Ask user how many jobs there are to render. This value is thrown into a for loop to create the appropriate number of files. 
 user_rushscript_dir = "/Users/matt/Documents/python/scalable_rush_renders"
 while True:
 	try:
-		nsd = input("New directory for these scripts will be created here {}. Name the directory without using the date and surround in quotations ".format(user_rushscript_dir))
+		nsd = input("New directory for these scripts will be created here {}. Name the directory without using the date and surround in quotations. ".format(user_rushscript_dir))
+		job_count = input("How many jobs will you be rendering? No quotations. ") 
 		break
-	except (NameError, SyntaxError) as e:
-		print("ERROR: Use quotations. Try again.")
+	except (errors) as e:
+		print("ERROR: Follow instructions for use of quotations.")
+
 new_rushscript_dir = os.path.join(user_rushscript_dir + "/" + nsd + "_" + now)
 os.umask(000)
 if not os.path.isdir(new_rushscript_dir):
 	os.mkdir(new_rushscript_dir, 0777)
 
-# Take user input to find out how many jobs we'll be rendering.
-user_input = input("How many jobs will you be rendering? ") 
-
-
-for i in range(user_input):
+for i in range(int(job_count)):
 	job_num += 1
 	# Create new command file for each job to be rendered.
 	shutil.copy("multi_HOPE_ClimateWall", new_rushscript_dir)
@@ -82,7 +82,7 @@ for i in range(user_input):
 
 # Execute Commands 
 for command_file in command_files: 
-	print(command_file)
+	print("CREATED:: " + command_file)
 
 
 		
