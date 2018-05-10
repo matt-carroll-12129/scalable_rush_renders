@@ -9,7 +9,8 @@ time = datetime.datetime.now()
 now = (time.strftime("%Y%m%d")) 					# For tagging new_rushscript_dir with date
 job_num = 0 										# For tagging the user prompts with a job #. 
 command_files = [] 									# The final product 
-errors = (NameError, TypeError, SyntaxError)
+submit_files = []									# The final product 
+
 
 # Make a new directory to house our bundle of scripts we're about to create. The new folder will be named with the date on the end. 
 # Ask user how many jobs there are to render. This value is thrown into a for loop to create the appropriate number of files. 
@@ -19,7 +20,7 @@ while True:
 		nsd = input("New directory for these scripts will be created here {}. Name the directory without using the date and surround in quotations. ".format(user_rushscript_dir))
 		job_count = input("How many jobs will you be rendering? No quotations. ") 
 		break
-	except (errors) as e:
+	except (NameError, SyntaxError) as e:
 		print("ERROR: Follow instructions for use of quotations.")
 
 new_rushscript_dir = os.path.join(user_rushscript_dir + "/" + nsd + "_" + now)
@@ -41,6 +42,7 @@ for i in range(int(job_count)):
 	old_submit_file = os.path.join(new_rushscript_dir + "/multi_python_rush_submit.py")
 	new_submit_file = os.path.join(new_rushscript_dir + "/multi_python_rush_submit_" + str(i+1) + ".py")
 	os.rename(old_submit_file, new_submit_file)
+	submit_files.append(new_submit_file)
 
 	# Get user input for variables to be used in new files. 	
 	while True:	
@@ -82,8 +84,10 @@ for i in range(int(job_count)):
 
 # Execute Commands 
 for command_file in command_files: 
-	print("CREATED:: " + command_file)
+	print("COMMAND FILES CREATED:: " + command_file)
 
+for submit_file in submit_files:
+	print("SUBMIT FILES CREATED:: " + submit_file)
 
 		
 
