@@ -1,0 +1,12 @@
+#!/bin/csh -f
+source /home/`whoami`/.cshrc
+source $RUSH_DIR/etc/.render
+echo "--- Working on frame $RUSH_FRAME - `date`"
+new_command_file $RUSH_FRAME $RUSH_FRAME 1
+set err = $status
+# Rush exit codes: 0=DONE  1=FAIL  2=RETRY
+if ( $err ) then
+    echo --- FAIL; exit 1
+else
+    echo --- DONE; exit 0
+endif
