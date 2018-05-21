@@ -9,16 +9,16 @@ if (len(sys.argv) <= 1):
 
 submit = os.popen("rush -submit", "w")
 
-submit.write(	 "title				%s\n"							
+submit.write(	 "title				MYTITLE\n"							
 				+"ram				1024\n " 									
-				+"frames			%s\n"									
+				+"frames			MYFRAMES\n"									
 				+"logdir			/hd/na10/junk\n"							
-				+"command			%s\n"
+				+"command			MYCOMMAND\n"
 				+"donemail			mcarroll@amnh.org\n"									
 				+"waitforstate			done\n"													
 				+"cpus				linuxbox32\n"													
 				 #"nevercpus			#NEVERCPUS\n"												 
-			) % ("MYTITLE", "MYFRAMES", "MYCOMMAND")
+			) 
 
 err = submit.close()
 if err:
