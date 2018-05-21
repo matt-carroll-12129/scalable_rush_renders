@@ -100,7 +100,7 @@ for i in range(int(job_count)):
 		f.write(file)
 		f.close()
 
-# Execute Commands 
+# List files created 
 for command_file in command_files: 
 	print("COMMAND FILES CREATED:: " + command_file)
 
@@ -109,6 +109,15 @@ for submit_file in submit_files:
 
 for render_file in render_files:
 	print("RENDER FILES CREATED:: " + render_file)
+
+#Execute commands // submit renders 
+
+# Execute submissions
+for x in submit_files:
+        submission_file = '"' + x + '"'
+        subprocess.check_output([x])
+
+
 
 		
 
