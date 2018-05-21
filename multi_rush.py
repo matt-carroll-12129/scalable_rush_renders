@@ -6,7 +6,7 @@ import datetime
 import subprocess
  
 time = datetime.datetime.now()
-now = (time.strftime("%Y%m%d")) 					# For tagging new_rushscript_dir with date
+now = (time.strftime("%Y%m%d")) 							# For tagging new_rushscript_dir with date
 job_num = 0 										# For tagging the user prompts with a job #. 
 command_files = [] 									# The final product 
 submit_files = []									# The final product 
