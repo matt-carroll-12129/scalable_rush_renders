@@ -9,7 +9,7 @@ if (len(sys.argv) <= 1):
 
 submit = os.popen("rush -submit", "w")
 
-submit.write(	 "title				MYTITLE\n"							
+submit.write(	 		 "title				MYTITLE\n"							
 				+"ram				1024\n " 									
 				+"frames			MYFRAMES\n"									
 				+"logdir			/hd/na10/junk\n"							
