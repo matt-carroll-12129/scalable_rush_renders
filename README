@@ -1,0 +1,3 @@
+Purpose: To automate the task of hand editing + submitting command and submission scripts for multiple Rush Renders. 
+
+Summary of Function: multi_rush.py takes user input. It creates a new directory in place where it will then make X amount of command + submit scripts.  
