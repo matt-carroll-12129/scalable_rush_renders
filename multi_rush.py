@@ -62,12 +62,12 @@ for i in range(int(job_count)):
 			break 
 		except (NameError, SyntaxError) as e:
 			print("ERROR: Use quotations. Start again.")
+
 	# Customize individual command file. The directory tree should be MYFRAME/src_frames/MRFRAME.12345.png. Name would then be MYFRAME.
 	open_write.open_write(new_command_file, "ADD_NAME", name)
 
 	# Customize individual submit file Frames. 
 	open_write.open_write(new_submit_file, "MYFRAMES", frames)	
-
 
 	# Customize individual submit file Title.
 	open_write.open_write(new_submit_file, "MYTITLE", title) 
@@ -82,10 +82,8 @@ for i in range(int(job_count)):
 # Print files created. 
 for command_file in command_files: 
 	print("COMMAND FILES CREATED:: " + command_file)
-
 for submit_file in submit_files:
 	print("SUBMIT FILES CREATED:: " + submit_file)
-
 for render_file in render_files:
 	print("RENDER FILES CREATED:: " + render_file)
 
