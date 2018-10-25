@@ -1,3 +1,12 @@
-Purpose: To automate the task of hand editing + submitting command and submission scripts for multiple Rush Renders. 
+Purpose: Mainly python practice. This automates some manual editing and file creation when submitting multiple Rush Renders from the same directory. Perviously, submitting multiple jobs to be rendered at the same time required:
 
-Summary of Function: multi_rush.py takes user input. It creates a new directory in place where it will then make X amount of command + submit scripts.  
+1. Creating a HOPE_ClimateWall file for each job. 
+2. Creating a HOPE_ClimateWall_render file for each job. 
+3. Creating a RUSH_SUBMIT file for each job. 
+4. Editing each of these three files with names, frame counts, titles, and render commands individually.  
+
+While this setup definitely is not perfect or pretty, it does automate specific portions of 1-4 by taking the user input from multi_rush.py.
+
+Contributions: multi_rush.py and open_write.py are 100% my work. multi_python_rush_submit.py is adapted from a template which can be found here http://seriss.com/rush-current/rush/rush-submit.html#Python-Simple. multi_HOPE_ClimateWall_render is built from a template found here http://seriss.com/rush-current/rush/rush-render.html. multi_HOPE_ClimateWall was not written by me. 
+
+
