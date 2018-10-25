@@ -13,10 +13,11 @@ command_files = [] 									# The final product
 submit_files = []									# The final product 
 render_files = []									# The final product
 
-# This is where our template Rush Scripts are that we will copy into nsd. 
-# Make a new directory to house our bundle of scripts we're about to create. The new folder will be named with the date on the end. 
-# Ask user how many jobs there are to render. This value is thrown into a for loop to create the appropriate number of files. 
+# This is where our template Rush Scripts live. 
 user_rushscript_dir = "/home/mcarroll/bin/rush"
+
+# Make a new directory to house our bundle of scripts we're about to create. The new folder will be named with the date on the end.
+# Ask user how many jobs there are to render. This value is thrown into a for loop to create the appropriate number of files.
 while True:
 	try:
 		nsd = input("New directory for these scripts will be created here {}. Name the directory without using the date and surround in quotations. ".format(user_rushscript_dir))
