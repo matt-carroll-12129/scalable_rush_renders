@@ -10,7 +10,7 @@ Purpose: Mainly python practice. This automates some manual editing and file cre
 4. Editing each of these three files with names, frame counts, titles, and render commands individually.  
 5. Submit each submission file individually. 
 
-While this setup definitely is not perfect or pretty, it does automate specific portions of 1-5 by taking the user input from multi_rush.py and executing the new submission scripts. Source file names are always have the same root name as the parent folder, i.e. /home/mcarroll/multi_submit_test_1/CO2_042618_2/src_frames/CO2_042618_2.00400.png 
+While my setup definitely is not perfect or pretty, it does automate specific portions of 1-5 by taking the user input from multi_rush.py and executing the new submission scripts. Source file names are always have the same root name as the parent folder, i.e. /home/mcarroll/multi_submit_test_1/CO2_042618_2/src_frames/CO2_042618_2.00400.png 
 
 Contributions: multi_rush.py and open_write.py are 100% my work. multi_python_rush_submit.py is adapted from a template which can be found here http://seriss.com/rush-current/rush/rush-submit.html#Python-Simple. multi_HOPE_ClimateWall_render is built from a template found here http://seriss.com/rush-current/rush/rush-render.html. multi_HOPE_ClimateWall was not written by me. 
  
