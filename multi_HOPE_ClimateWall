@@ -5,10 +5,10 @@ mo=/usr/bin/montage
 black=/hd/na11/AJA/black/1080pBlack.jpg
 
 ##########################################
-name=ADD_NAME 
-idir=/hd/na31/ClimateWall/$name/src_frames
-odir=/hd/na31/ClimateWall/$name/split_frames
-ajaodir=/hd/na31/ClimateWall/$name/aja_frames
+name=ADD_NAME
+idir=/home/mcarroll/multi_submit_test_1/$name/src_frames
+odir=/home/mcarroll/multi_submit_test_1/$name/split_frames
+ajaodir=/home/mcarroll/multi_submit_test_1/$name/aja_frames
 iext=png
 oext=png
 pad=5
