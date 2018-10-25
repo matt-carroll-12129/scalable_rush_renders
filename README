@@ -21,7 +21,7 @@ Contributions: multi_rush.py and open_write.py are 100% my work. multi_python_ru
  /home/mcarroll/multi_submit_test_1/CO2_042618_2/src_frames
  /home/mcarroll/multi_submit_test_1/CO2_042618_3/src_frames
  
- When I run the following command and add my input, the scripts are submitted to our render farm and the resulting sliced frames are put in place. 
+ When I run the following command and add my input, the scripts are created and submitted to our render farm. The render farm will write newly sliced frames to the proper location. 
  
 (dgp) mcarroll@zinc:[~/bin/rush]$ python multi_rush.py 
 New directory for these scripts will be created here /home/mcarroll/bin/rush. Name the directory without using the date and surround in quotations. "scripts"
@@ -44,5 +44,7 @@ SUBMIT FILES CREATED:: /home/mcarroll/bin/rush/scripts_20181025/multi_python_rus
 RENDER FILES CREATED:: /home/mcarroll/bin/rush/scripts_20181025/multi_HOPE_ClimateWall_render_1
 RENDER FILES CREATED:: /home/mcarroll/bin/rush/scripts_20181025/multi_HOPE_ClimateWall_render_2
 RENDER FILES CREATED:: /home/mcarroll/bin/rush/scripts_20181025/multi_HOPE_ClimateWall_render_3
+
+
  
  
