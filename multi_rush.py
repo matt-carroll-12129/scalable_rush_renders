@@ -7,12 +7,13 @@ import subprocess
 import open_write
  
 time = datetime.datetime.now()
-now = (time.strftime("%Y%m%d")) 					# For tagging new_rushscript_dir with date
+now = (time.strftime("%Y%m%d")) 							# For tagging new_rushscript_dir with date
 job_num = 0 										# For tagging the user prompts with a job #. 
 command_files = [] 									# The final product 
 submit_files = []									# The final product 
 render_files = []									# The final product
 
+# This is where our template Rush Scripts are that we will copy into nsd. 
 # Make a new directory to house our bundle of scripts we're about to create. The new folder will be named with the date on the end. 
 # Ask user how many jobs there are to render. This value is thrown into a for loop to create the appropriate number of files. 
 user_rushscript_dir = "/home/mcarroll/bin/rush"
@@ -62,7 +63,6 @@ for i in range(int(job_count)):
 			break 
 		except (NameError, SyntaxError) as e:
 			print("ERROR: Use quotations. Start again.")
-
 	# Customize individual command file. The directory tree should be MYFRAME/src_frames/MRFRAME.12345.png. Name would then be MYFRAME.
 	open_write.open_write(new_command_file, "ADD_NAME", name)
 
@@ -82,8 +82,10 @@ for i in range(int(job_count)):
 # Print files created. 
 for command_file in command_files: 
 	print("COMMAND FILES CREATED:: " + command_file)
+
 for submit_file in submit_files:
 	print("SUBMIT FILES CREATED:: " + submit_file)
+
 for render_file in render_files:
 	print("RENDER FILES CREATED:: " + render_file)
 
@@ -91,16 +93,3 @@ for render_file in render_files:
 for x in submit_files:
 	submission_file = '"' + x + '"' 
 	subprocess.check_output([x])
-
-		
-
-
-
-
-
-	
-		
-
-
-
-
