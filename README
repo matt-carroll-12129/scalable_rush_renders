@@ -1,3 +1,48 @@
-Purpose: To automate the task of hand editing + submitting command and submission scripts for multiple Rush Renders. 
+Background: We have artists create and large frame sequences at 17280x3240 resolution to one network location in a folder called /source/to/location/src_frames. Our task is to split those frames up into 27 individual 1920x1080 frames and montage for display on 27 monitors. 
 
-Summary of Function: multi_rush.py takes user input. It creates a new directory in place where it will then make X amount of command + submit scripts.  
+Visual Reference: https://earther.gizmodo.com/the-american-museum-of-natural-historys-new-climate-exh-1827284694
+
+Purpose: Mainly python practice. This automates some manual editing and file creation when submitting multiple Rush Renders from the same directory. Perviously, submitting multiple jobs to be rendered at the same time required:
+
+1. Creating a HOPE_ClimateWall file for each job. 
+2. Creating a HOPE_ClimateWall_render file for each job. 
+3. Creating a RUSH_SUBMIT file for each job. 
+4. Editing each of these three files with names, frame counts, titles, and render commands individually.  
+5. Submit each submission file individually. 
+
+While this setup definitely is not perfect or pretty, it does automate specific portions of 1-5 by taking the user input from multi_rush.py and executing the new submission scripts. Source file names are always have the same root name as the parent folder, i.e. /home/mcarroll/multi_submit_test_1/CO2_042618_2/src_frames/CO2_042618_2.00400.png 
+
+Contributions: multi_rush.py and open_write.py are 100% my work. multi_python_rush_submit.py is adapted from a template which can be found here http://seriss.com/rush-current/rush/rush-submit.html#Python-Simple. multi_HOPE_ClimateWall_render is built from a template found here http://seriss.com/rush-current/rush/rush-render.html. multi_HOPE_ClimateWall was not written by me. 
+ 
+ Example: 
+ 
+ I copied 3 versions of artist frames here: 
+ /home/mcarroll/multi_submit_test_1/CO2_042618_1/src_frames
+ /home/mcarroll/multi_submit_test_1/CO2_042618_2/src_frames
+ /home/mcarroll/multi_submit_test_1/CO2_042618_3/src_frames
+ 
+ When I run the following command and add my input, the scripts are submitted to our render farm and the resulting sliced frames are put in place. 
+ 
+(dgp) mcarroll@zinc:[~/bin/rush]$ python multi_rush.py 
+New directory for these scripts will be created here /home/mcarroll/bin/rush. Name the directory without using the date and surround in quotations. "scripts"
+How many jobs will you be rendering? No quotations. 3
+[JOB #1] What is the frame name root? ($idir/$name.$i.$iext). Put inside quotations "CO2_042618_1"
+[JOB #1] What would you like to name your render? Put inside quotations "CO2_042618_1"
+[JOB #1] What is the frame range? Format = X-XXX. Put in quotations "0-399"
+[JOB #2] What is the frame name root? ($idir/$name.$i.$iext). Put inside quotations "CO2_042618_2"
+[JOB #2] What would you like to name your render? Put inside quotations "CO2_042618_2"
+[JOB #2] What is the frame range? Format = X-XXX. Put in quotations "400-799"
+[JOB #3] What is the frame name root? ($idir/$name.$i.$iext). Put inside quotations "CO2_042618_3"
+[JOB #3] What would you like to name your render? Put inside quotations "CO2_042618_3"
+[JOB #3] What is the frame range? Format = X-XXX. Put in quotations "800-1200"
+COMMAND FILES CREATED:: /home/mcarroll/bin/rush/scripts_20181025/HOPE_ClimateWall_1
+COMMAND FILES CREATED:: /home/mcarroll/bin/rush/scripts_20181025/HOPE_ClimateWall_2
+COMMAND FILES CREATED:: /home/mcarroll/bin/rush/scripts_20181025/HOPE_ClimateWall_3
+SUBMIT FILES CREATED:: /home/mcarroll/bin/rush/scripts_20181025/multi_python_rush_submit_1.py
+SUBMIT FILES CREATED:: /home/mcarroll/bin/rush/scripts_20181025/multi_python_rush_submit_2.py
+SUBMIT FILES CREATED:: /home/mcarroll/bin/rush/scripts_20181025/multi_python_rush_submit_3.py
+RENDER FILES CREATED:: /home/mcarroll/bin/rush/scripts_20181025/multi_HOPE_ClimateWall_render_1
+RENDER FILES CREATED:: /home/mcarroll/bin/rush/scripts_20181025/multi_HOPE_ClimateWall_render_2
+RENDER FILES CREATED:: /home/mcarroll/bin/rush/scripts_20181025/multi_HOPE_ClimateWall_render_3
+ 
+ 
