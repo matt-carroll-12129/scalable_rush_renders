@@ -1,4 +1,4 @@
-Background: We have artists create large frame sequences at 17280x3240 resolution to one network location in a folder called /source/to/location/src_frames. Our task is to split those frames up into 27 individual 1920x1080 frames and montage for display on 27 monitors. 
+Background: We have artists create large frame sequences at 17280x3240 resolution. They're stored on one network location in a folder structure /source/to/location/src_frames. Our task is to split the frames up into 27 individual 1920x1080 frames each, and montage for display on 27 monitors. 
 
 Visual Reference: https://earther.gizmodo.com/the-american-museum-of-natural-historys-new-climate-exh-1827284694
 
